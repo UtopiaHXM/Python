@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+  {% block css %}
+  {% load staticfiles %}
+  <link rel="stylesheet" type="text/css" href=" {% static "css/layout.css" %}">
+  {% endblock %}
+  {% block content%}
+   
+    <div class="content">
+          <div class="block">
+          <br>
+              <div id="page-stats" class="block-body collapse in">
+                        <div class="warning">
+WARNING: All domains on this website should be considered dangerous. If you do <br>
+not know what you are doing here, it is recommended you leave right away. This <br>
+website is a resource for security professionals and enthusiasts. <br>
+Tips: You can enter the Download page to download what you need.<br>
+</div>
+</div>
+<div class="ContentBox">
+<center>
+<form method="get" name="page" action="">
+<table>
+<tbody>
+<tr>
+<tr><td style="right">
+Search: </td>
+<td>
+<select name="colsearch">
+<option value="URL">Compromised URL</option>
+<option value="Domain">Domain blocklist (BadDomains)</option>
+<option value="Standard">Domain blocklist (Standard)</option>
+</select>
+</td>
+<td colspan="3"><center><p><input type="submit" name="search"></p></center></td>
+</tr>
+</tbody></table>
+</form>
+</center>
+
+<table class="table">
+<tbody>
+<tr class="tabletitle">
+<td>id</td>
+<td>info_type</td>
+<td>bad_content</td>
+<td>description</td>
+</tr>
+
+</tbody>
+{% if zeus_record %}
+    {% for record in zeus_record %}
+        <tr bgcolor="#d8d8d8" onmouseover="this.style.backgroundColor='#b6bac6'" onmouseout="this.style.backgroundColor='#d8d8d8'" style="background-color: rgb(216, 216, 216);">
+            <td>{{record.id}}</td>
+            <td>{{record.info_type}}</td>
+            <td>{{record.bad_content}}</td>
+            <td>{{record.description}}</td>
+        </tr>    
+    {% endfor%}
+  </table>
+  <div class="pagination">
+    <ul>
+        {% if zeus_record.has_previous %}
+          {%if condition %}
+                  <li><a href="?{{condition}}&amp;page={{ zeus_record.previous_page_number }}">Prev</a></li>
+            {% else %}
+              <li><a href="?page={{ zeus_record.previous_page_number }}">Prev</a></li>
+          {% endif %}
+        {% endif %}
+        <li><span class="current">第 {{ zeus_record.number }} 页 </span><span class="current">共 {{ zeus_record.paginator.num_pages }} 页</span></li>
+        {% if zeus_record.has_next %}
+          {% if condition %}
+            <li><a href="?{{condition}}&amp;page={{ zeus_record.next_page_number }}">Next</a></li>
+            {% else %}
+              <li><a href="?page={{ zeus_record.next_page_number }}">Next</a></li>
+          {% endif %}
+        {% endif %}
+     </ul>
+</div>
+{% else %}
+  <tr><h1>No Results</h1></tr>
+
+{% endif %}
+                </div>
+
+                    </div>
+
+              </div>
+        </div>
+{% endblock %}

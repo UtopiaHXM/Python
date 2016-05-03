@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+  {% block css %}
+  {% load staticfiles %}
+  <link rel="stylesheet" type="text/css" href=" {% static "css/layout.css" %}">
+  {% endblock %}
+  {% block content%}
+   
+    <div class="content">
+          <div class="block">
+          <br>
+              <div id="page-stats" class="block-body collapse in">
+                        <div class="warning">
+WARNING: All domains on this website should be considered dangerous. As the followed, <br>
+which is the result of virustotal detecting infomation<br>
+</div>
+<div class="ContentBox">
+<center>
+<form method="get" name="page" action="">
+<table>
+<tbody>
+<tr>
+  {% if error %}
+  <h1>{{errors}}</h1>
+  {% endif %}</tr>
+<tr><td style="right">
+Search: </td>
+<td><input type="text" name="search"></td>
+<td>
+<select name="colsearch">
+<option value="url">url</option>
+</select>
+</td>
+<td colspan="3"><center><p><input type="submit" value="Search"></p></center></td>
+</tr>
+</tbody></table>
+</form>
+</center>
+
+<table class="table">
+<tbody>
+<tr class="tabletitle">
+<td>scan_date</td>
+<td>url</td>
+<td>positives</td>
+<td>total</td>
+<td>scans</td>
+</tr>
+
+</tbody>
+{% if virus_record %}
+    {% for record in virus_record %}
+        <tr bgcolor="#d8d8d8" onmouseover="this.style.backgroundColor='#b6bac6'" onmouseout="this.style.backgroundColor='#d8d8d8'" style="background-color: rgb(216, 216, 216);">
+            <td>{{record.scan_date}}</td>
+            <td>{{record.url}}</td>
+            <td>{{record.positives}}</td>
+            <td>{{record.total}}</td>
+            <td>{{record.scans}}</td>
+        </tr>    
+    {% endfor%}
+  </table>
+  <div class="pagination">
+    <ul>
+        {% if virus_record.has_previous %}
+          {%if condition %}
+                  <li><a href="?{{condition}}&amp;page={{ virus_record.previous_page_number }}">Prev</a></li>
+            {% else %}
+              <li><a href="?page={{ virus_record.previous_page_number }}">Prev</a></li>
+          {% endif %}
+        {% endif %}
+        <li><span class="current">第 {{ virus_record.number }} 页 </span><span class="current">共 {{ virus_record.paginator.num_pages }} 页</span></li>
+        {% if virus_record.has_next %}
+          {% if condition %}
+            <li><a href="?{{condition}}&amp;page={{ virus_record.next_page_number }}">Next</a></li>
+            {% else %}
+              <li><a href="?page={{ virus_record.next_page_number }}">Next</a></li>
+          {% endif %}
+        {% endif %}
+<!-- {{request.get_full_path}}
+ -->    </ul>
+</div>
+{% else %}
+  <tr><h1>No Results</h1></tr>
+
+{% endif %}
+                </div>
+
+                    </div>
+
+              </div>
+        </div>
+{% endblock %}

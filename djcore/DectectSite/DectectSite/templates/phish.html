@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+	{% block css %}
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href=" {% static "css/layout.css" %}">
+	{% endblock %}
+
+	{% block content%}
+   
+    <div class="content">
+        
+        <div class="header">
+            <!-- <div class="stats">
+            	<p class="stat"><span class="number">53</span>tickets</p>
+            	<p class="stat"><span class="number">27</span>tasks</p>
+            	<p class="stat"><span class="number">15</span>waiting</p>
+            </div> -->
+
+            <h1 class="page-title">Dashboard</h1>
+        </div>
+        
+            <ul class="breadcrumb">
+            <li><a href="">Home</a> <span class="divider">/</span></li>
+            <li class="active">Dashboard</li>
+        	</ul>
+
+        <div class="container-fluid">
+   
+
+			<div class="row-fluid">
+
+				<div class="alert alert-info">
+        			<button type="button" class="close" data-dismiss="alert">×</button>
+        			<strong>Just a quick note:</strong> Hope you like the theme!
+    			</div>
+
+    			<div class="block">
+        			<a href="#page-stats" class="block-heading" data-toggle="collapse">Phish Websites<span class="label label-warning">The Last Ten Records</span></a>
+        	<br>
+        			<div id="page-stats" class="block-body collapse in">
+                        <div class="warning">
+WARNING: All urls on this page should be considered dangerous. If you do <br>
+not know what you are doing here, it is recommended you leave right away. This <br>
+website is a resource for security professionals and enthusiasts. <br>
+DESCRIBE:The lastest(10) phish websites as following
+</div>
+
+<table class="table">
+<tbody>
+<tr><a href="/siteshow/search_phish/">More...</a></tr>
+<tr class="tabletitle">
+<td>id</td>
+<td>phish_id</td>
+<td>url</td>
+<td>phish_detail_url</td>
+<td>submission_time</td>
+<td>verified</td>
+<td>verified_time</td>
+<td>online</td>
+<td>target</td>
+</tr>
+
+</tbody>
+{% if phish_record %}
+    {% for record in phish_record %}
+        <tr bgcolor="#d8d8d8" onmouseover="this.style.backgroundColor='#b6bac6'" onmouseout="this.style.backgroundColor='#d8d8d8'" style="background-color: rgb(216, 216, 216);">
+            <td>{{forloop.counter}}</td>
+            <td>{{record.phish_id}}</td>
+            <td>{{record.url}}</td>
+            <td>{{record.phish_detail_url}}</td>
+            <td>{{record.submission_time}}</td>
+            <td>{{record.verified}}</td>
+            <td>{{record.verification_time}}</td>
+            <td>{{record.online}}</td>
+            <td>{{record.target}}</td>
+    {% endfor%}
+{% endif %}
+        				</div>
+
+                    </div>
+
+            	</div>
+	   		</div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends 'plat_xzb/base.html' %}
+
+    {% block title %}
+         <title>查询</title>
+     {% endblock %}
+ 
+     {% block content %}
+     <div class = "waper">
+         {% if error %}
+             <p style="color: red;">请输入查询信息：</p>
+         {% endif %}
+         <div class = "search">
+             <form action="" method="get" class = "search-form">
+                 <input type="text" name="q">
+                 <input type="submit" value="查询">
+             </form>
+         </div>
+ 
+         {% if record_list %}
+             <div id = "record_list">
+                 <table class = "table_record_list">
+                     <tr>
+                         <th>ip</th>
+                         <th>type</th>
+                         <th>version</th>
+                         <th>item_id</th>
+                         <th>task_id</th>
+                     </tr>
+                     {% for record in record_list.object_list %}
+                         <tr>
+                             <td>{{ record.ip }}</td>
+                             <td>{{ record.type }}</td>
+                             <td>{{ record.version }}</td>
+                             <td>{{ record.item_id }}</td>
+                             <td>{{ record.task_id }}</td>
+                         </tr>
+                     {% endfor %}
+                    </table>
+                 <div class="pagination">
+                        <span class="step-links">
+                             {% if record_list.has_previous %}
+                                 <a href="?page={{ record_list.previous_page_number }}">上一页</a>
+                             {% endif %}
+ 
+                         <span class="current">
+                             第 {{ record_list.number }} 页  
+                         </span>
+                         <span class="current">
+                         共 {{ record_list.paginator.num_pages }} 页
+                         </span>
+ 
+                     {% if record_list.has_next %}
+                             <a href="?page={{ record_list.next_page_number }}">下一页</a>
+                     {% endif %}
+                         </span>
+                 </div>
+             </div>
+         {% else %}
+             <p> 没有记录。 </p>
+         {% endif %}
+         <div class = "footer">
+         </div>
+     </div>
+ {% endblock %}

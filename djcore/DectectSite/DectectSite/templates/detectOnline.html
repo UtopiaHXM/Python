@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+  {% block css %}
+  {% load staticfiles %}
+  <link rel="stylesheet" type="text/css" href=" {% static "css/layout.css" %}">
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static "css/phish/search.css" %}" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/phish/normalize.css" %}" media="screen"/>
+  {% endblock %}
+  {% block content%}
+   
+    <div class="content">
+          <div class="block">
+          <br>
+              <div id="page-stats" class="block-body collapse in">
+                        <div class="warning">
+Tips: You can enter the domain which you want to detect<br>
+we will detect it online with virustotal and show you the detected result<br>
+</div>
+</div>
+{% if detect_info_dict %}
+<script language=javascript>
+var info = {{detect_info_dict}}
+var output = ""
+for(var key in info){
+  output += key+' : '+info[key]+'\n'
+}
+alert(output)
+</script>
+ 
+{% endif %}
+{% if noDetect %}
+       <script language=javascript>
+       alert('域名未被检测到');
+       </script>
+{% endif %}
+{% if noDomain %}
+       <script language=javascript>
+       alert('请输入要查询的域名');
+       </script>
+{% endif %}
+<div id="homeDomains" align="center">
+            <h2>Detect  A  URL</h2>
+            <form id="domainSearch" method="get" action="/siteshow/detectOnline/" >
+              <input type="text" name="domainField" id="domainField" placeholder="Enter a URL Or Domain To Detect (e.g baidu.com)" /> 
+              <input type="submit" name="searchDomains" id="searchDomains" value="Search domains" />
+            </form>
+          </div>
+        </div>
+        </div>
+{% endblock %}

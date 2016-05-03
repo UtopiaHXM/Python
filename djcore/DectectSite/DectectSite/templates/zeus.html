@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+	{% block css %}
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href=" {% static "css/layout.css" %}">
+	{% endblock %}
+	{% block content%}
+   
+    <div class="content">
+        
+        <div class="header">
+            <!-- <div class="stats">
+            	<p class="stat"><span class="number">53</span>tickets</p>
+            	<p class="stat"><span class="number">27</span>tasks</p>
+            	<p class="stat"><span class="number">15</span>waiting</p>
+            </div> -->
+
+            <h1 class="page-title">Dashboard</h1>
+        </div>
+        
+            <ul class="breadcrumb">
+            <li><a href="">Home</a> <span class="divider">/</span></li>
+            <li class="active">Dashboard</li>
+        	</ul>
+
+        <div class="container-fluid">
+   
+
+			<div class="row-fluid">
+
+				<div class="alert alert-info">
+        			<button type="button" class="close" data-dismiss="alert">×</button>
+        			<strong>Just a quick note:</strong> Hope you like the theme!
+    			</div>
+
+    			<div class="block">
+
+        			<a href="#page-stats" class="block-heading" data-toggle="collapse">Zeustrackerware Websites<span class="label label-warning">The Last Ten Records</span></a>
+        	<br>
+        			<div id="page-stats" class="block-body collapse in">
+                        <div class="warning">
+WARNING: All domains on this website should be considered dangerous. If you do <br>
+not know what you are doing here, it is recommended you leave right away. This <br>
+website is a resource for security professionals and enthusiasts. <br>
+DESCRIBE:The lastest(10) datas from Zeustracker websites as following
+</div>
+
+<table class="table">
+<tbody>
+<tr><a href="/siteshow/search_zeus/">More...</a></tr>
+<tr class="tabletitle">
+<td>id</td>
+<td>info_type</td>
+<td>bad_content</td>
+<td>description</td>
+</tr>
+
+</tbody>
+{% if zeus_record %}
+    {% for record in zeus_record %}
+        <tr bgcolor="#d8d8d8" onmouseover="this.style.backgroundColor='#b6bac6'" onmouseout="this.style.backgroundColor='#d8d8d8'" style="background-color: rgb(216, 216, 216);">
+            <td>{{ record.id }}</td>
+            <td>{{ record.info_type|safe }}</td>
+            <td>{{ record.bad_content|safe }}</td>
+            <td>{{ record.description|safe }}</td>
+    {% endfor%}
+{% endif %}
+        				</div>
+
+                    </div>
+
+            	</div>
+	   		</div>
+{% endblock %}

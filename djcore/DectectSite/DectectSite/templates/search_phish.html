@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+  {% block css %}
+  {% load staticfiles %}
+  <link rel="stylesheet" type="text/css" href=" {% static "css/layout.css" %}">
+  {% endblock %}
+  {% block content%}
+   
+    <div class="content">
+          <div class="block">
+          <br>
+              <div id="page-stats" class="block-body collapse in">
+                        <div class="warning">
+WARNING: All domains on this website should be considered dangerous. If you do <br>
+not know what you are doing here, it is recommended you leave right away. This <br>
+website is a resource for security professionals and enthusiasts. <br>
+Tips: You can enter the Download page to download what you need.<br>
+</div>
+<div class="ContentBox">
+<center>
+<form method="get" name="page" action="">
+<table>
+<tbody>
+<tr>
+  {% if error %}
+  <h1>{{errors}}</h1>
+  {% endif %}</tr>
+<tr><td style="right">
+Search: </td>
+<td><input type="text" name="search"></td>
+<td>
+<select name="colsearch">
+<option value="phish_id">phish_id(465461)</option>
+<option value="url">url(e.g www.baidu.com)</option>
+<option value="online">online(yes|no)</option>
+<option value="target">target</option>
+</select>
+</td>
+<td colspan="3"><center><p><input type="submit" value="Search"></p></center></td>
+</tr>
+</tbody></table>
+</form>
+</center>
+
+<table class="table">
+<tbody>
+<tr class="tabletitle">
+<td>phish_id</td>
+<td>url</td>
+<td>phish_detail_url</td>
+<td>submission_time</td>
+<td>verified</td>
+<td>verified_time</td>
+<td>online</td>
+<td>target</td>
+</tr>
+
+</tbody>
+{% if phish_record %}
+    {% for record in phish_record %}
+        <tr bgcolor="#d8d8d8" onmouseover="this.style.backgroundColor='#b6bac6'" onmouseout="this.style.backgroundColor='#d8d8d8'" style="background-color: rgb(216, 216, 216);">
+            <td>{{record.phish_id}}</td>
+            <td>{{record.url}}</td>
+            <td>{{record.phish_detail_url}}</td>
+            <td>{{record.submission_time}}</td>
+            <td>{{record.verified}}</td>
+            <td>{{record.verification_time}}</td>
+            <td>{{record.online}}</td>
+            <td>{{record.target}}</td>
+        </tr>    
+    {% endfor%}
+  </table>
+  <div class="pagination">
+    <ul>
+        {% if phish_record.has_previous %}
+          {%if condition %}
+                  <li><a href="?{{condition}}&amp;page={{ phish_record.previous_page_number }}">Prev</a></li>
+            {% else %}
+              <li><a href="?page={{ phish_record.previous_page_number }}">Prev</a></li>
+          {% endif %}
+        {% endif %}
+        <li><span class="current">第 {{ phish_record.number }} 页 </span><span class="current">共 {{ phish_record.paginator.num_pages }} 页</span></li>
+        {% if phish_record.has_next %}
+          {% if condition %}
+            <li><a href="?{{condition}}&amp;page={{ phish_record.next_page_number }}">Next</a></li>
+            {% else %}
+              <li><a href="?page={{ phish_record.next_page_number }}">Next</a></li>
+          {% endif %}
+        {% endif %}
+<!-- {{request.get_full_path}}
+ -->    </ul>
+</div>
+{% else %}
+  <tr><h1>No Results</h1></tr>
+
+{% endif %}
+                </div>
+
+                    </div>
+
+              </div>
+        </div>
+{% endblock %}

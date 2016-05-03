@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block css %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href=" {% static "css/layout.css" %}">
+    {% endblock %}
+    {% block content%}
+
+    <div class="content">
+        
+        <div class="header">
+            <h1 class="page-title">Dashboard</h1>
+        </div>
+        
+            <ul class="breadcrumb">
+            <li><a href="">Home</a> <span class="divider">/</span></li>
+            <li class="active">Dashboard</li>
+            </ul>
+
+        <div class="container-fluid">
+
+            <div class="row-fluid">
+
+                <div class="alert alert-info">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <strong>Just a quick note:</strong> Hope you like the theme!
+                </div>
+                <div class="block">
+
+                    <div id="page-stats" class="block-body collapse in">
+                        <br/>
+                        <div class="warning">
+WARNING: You will download the json file that records the domains on this website what should be <br>considered dangerous. If you do 
+not know what you are doing here, it is <br>recommended you leave right away. This website is a resource<br> for security professionals and enthusiasts. <br>
+</div>
+</div>
+    <div id="content_section">
+                                <h4><a href="">Downloadable Lists</a></h4>
+                                    <h5>These are the list which we currently provide. If you have special requirements, then please let me know.</h5><br/>
+                                <div class="post">
+                                    <div class="inner"> 
+                                    <h4><a href="/siteshow/download_json_phish/">download json phish</a></h4>
+                                    <h5>complete phish websites database in json format</h5>
+                                    <img src="{% static "img/phish_json.png" %}" alt="/siteshow/download_json_phish/"/>
+                                </div>
+                                </div>
+                                <div class="post">
+                                <div class="inner"> 
+                                    <h4><a href="/siteshow/download_json_zeus/">download json zeus</a></h4>
+                                    <h5>complete zeus websites database in json format</h5>
+                                    <img src="{% static "img/zeus_json.png" %}" alt="/siteshow/download_json_zeus/"/>
+                                </div>
+                                </div>    
+                                <div class="post">
+                                    <div class="inner"> 
+                                    <h4><a href="/siteshow/download_json_malware/">download json malware</a></h4>
+                                    <h5>complete malware websites database in json format</h5>
+                                    <img src="{% static "img/mal_json.png" %}" alt="/siteshow/download_json_malware/"/>
+                                </div>      
+                                </div>
+                            </div>
+                        </div>
+{% endblock %}
+

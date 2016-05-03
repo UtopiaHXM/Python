@@ -1,0 +1,223 @@
+@charset "utf-8";
+/* CSS Document */
+/*html, body
+{
+    height: 100%;
+}*/
+body, topspace {
+/*	background: #CCCCCC;	
+ */
+	background: #5b859e; /* Old browsers */
+	background: -moz-linear-gradient(top, #5b859e 0%, #326888 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5b859e), color-stop(100%,#326888)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #5b859e 0%,#326888 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #5b859e 0%,#326888 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #5b859e 0%,#326888 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #5b859e 0%,#326888 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5b859e', endColorstr='#326888',GradientType=0 ); /* IE6-9 */
+}
+
+#footer_section
+{
+    text-align: center;
+	background: #5b859e; /* Old browsers */
+	background: -moz-linear-gradient(top, #5b859e 0%, #326888 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#5b859e), color-stop(100%,#326888)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #5b859e 0%,#326888 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #5b859e 0%,#326888 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #5b859e 0%,#326888 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #5b859e 0%,#326888 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5b859e', endColorstr='#326888',GradientType=0 ); /* IE6-9 */
+	border-radius: 10px;
+	padding: 20px 5px;
+	margin-top: 20px;
+	color: #fff;
+	text-shadow: 0 1px 0 #000;
+}
+
+div#content_box
+{
+/*    margin: 20px;*/
+    margin: 0 auto;
+    padding: 15px;
+    background: #5B859E;
+    min-width: 764px;
+    max-width: 2300px;
+    border-radius: 10px;
+    height: 90%; 
+}	
+.post
+{
+	overflow: auto;
+	line-height: 1.4em;
+	padding: 0.1em 0;
+}				
+.MainContainer  {
+    width: 1000px;  
+	marging-top: 5px;
+    background: #FFFFFF;
+    margin-left: auto;
+	margin-right: auto;
+    border-left: 1px solid #CCCCCC;
+	border-right: 1px solid #CCCCCC;
+
+}
+.Header {
+	height: 61px;
+	background-color: #666666;
+	background-image:url(/mdl.jpg);
+	color: #FFFFFF;
+}
+.Header p{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	color: #FFFFFF;
+	padding: 20px;
+}
+.navigation {
+	background-color: #FFCC00;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #333333;
+	padding-top: 2px;
+	padding-left: 20px;
+	padding-bottom: 2px;
+}
+.ContentBox {
+	margin: 20px;
+}
+.ContentBox h1 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	color: #ff0000
+}
+.ContentBox h2 {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-style: oblique;
+	font-style: italic;
+}
+.ContentBox p {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+.ContentBox li {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	margin-left: 20px;
+}
+.footer {
+	background-color: #666666;	
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	color: #FFFFFF;
+	text-align: center;
+	font-style: italic;
+}
+h5
+{
+	color: #5F9EA0;
+	font-size: 1em;
+	margin: 0;
+	padding: 0;
+}
+h4
+{
+	color: #0000FF;
+	font-size: 1.5em;
+}
+.post
+{
+	margin-top: 0.5em;
+	clear: right;
+}
+.inner
+{
+	padding: 1em 1em 2px 0;
+	margin: 0 1em 0 0;
+	border-top: 1px solid #99a;
+}
+.warning {
+	margin-left: 40px;
+	margin-right: 40px;
+	margin-bottom: 10px;
+	border:2px solid #ac6262;
+	padding: 5px;
+	background:#fbeded;
+	color:#6d675f;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	text-align: center;
+}
+
+.disclaimer {
+	margin-left: 40px;
+	margin-right: 40px;
+	margin-bottom: 10px;
+	border:2px solid #FFDD00;
+	padding: 5px;
+	background:#FFF9BD;
+	color:#6d675f;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	text-align: center;
+}
+.percentage { float: left; display: inline; width: 100px; height: 10px; background: url("http://dnsbl.abuse.ch/images/percent.gif") left top repeat-x; font-size: 8px; line-height: 10px; }
+.percentagelabel { float: left; display: inline; margin-left: 5px; line-height: 10px; }
+
+.tabletitle {
+	background: #FFDD00;
+    font-size: 15px;
+	text-align: center;
+	color: #000000
+}
+.table {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	text-align: left;
+}
+
+.table a:visited {
+	color: #000000;
+}
+
+.navigation a:link {
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #000000:
+}
+.navigation a:visited {
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #000000;
+}
+.navigation a {
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #000000;
+}
+.navigation a:hover {
+	text-decoration: none;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #FFFFFF;
+}
+a:visited {
+	color: #0000FF;
+}
+.code {
+   	background-color: #E1E1E1;
+	margin-bottom: 0px;
+	margin-left: 45px;
+	margin-right: 45px;
+	margin-bottom: 15px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+    border: 1px dotted #000000;
+    text-align: left; 
+}
